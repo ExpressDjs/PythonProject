@@ -7,13 +7,12 @@ WEBCAM = 1
 LAP_CAM = 0
 BORDER_WIDTH = 2
 OURSIDE_CAM = "rtsp://cam1.oleary.com/Streaming/Channels/2"
+# outside cam is linked to local hostnames, change to IP or FQDN of camera!
 
 # Importing Haar Cascades into program
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 body_cascade = cv2.CascadeClassifier('haarcascade_upperbody.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-
-
 
 
 cap = cv2.VideoCapture(OURSIDE_CAM)
