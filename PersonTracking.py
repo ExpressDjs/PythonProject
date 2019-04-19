@@ -1,19 +1,12 @@
 # Denis O'Leary / T00191862 / Final year project
 
 import cv2
-import smtpd, ssl
+
 
 WEBCAM = 1
 LAP_CAM = 0
 BORDER_WIDTH = 2
-
-
-# Email info for sending out notifications!
-smtp_server = "smtp.gmail.com"
-port = 587
-sender_email = "olearyscctv@gmail.com"
-sender_password = " "
-receve_email = "Denis.oleary2@students.ittralee.ie"
+OURSIDE_CAM = "rtsp://cam1.oleary.com/Streaming/Channels/2"
 
 # Importing Haar Cascades into program
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -23,12 +16,12 @@ eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
 
 
-cap = cv2.VideoCapture(LAP_CAM)
+cap = cv2.VideoCapture(OURSIDE_CAM)
 
 while True:
     ret, img = cap.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    body = body_cascade.detectMultiScale(gray, 1.3, 5)
+    body = body_cascade.detectMultiScale(gray)
 
     for (x,y,w,h) in body:
         cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0), BORDER_WIDTH)
