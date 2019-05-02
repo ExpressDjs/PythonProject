@@ -24,7 +24,7 @@ while True: # setting up the system
 
     for (x,y,w,h) in body: # first checking for body
         cv2.rectangle(img, (x,y), (x+w, y+h), (255,0,0), BORDER_WIDTH) # adds a border around body
-        fce_gray = gray[y:y+h, x:x+w] # sets up the
+        fce_gray = gray[y:y+h, x:x+w]
         fce_color = img[y:y+h, x:x+w]
 
         print("Body Detected on stream")
@@ -38,8 +38,8 @@ while True: # setting up the system
 
 
     cv2.imshow('Image rec', img)
-    k = cv2.waitKey(30) & 0xff
-    if k == 27:
+    kill = cv2.waitKey(30) & 0xff
+    if kill == 27:
         print("Now closing down Stream")
         break
 
