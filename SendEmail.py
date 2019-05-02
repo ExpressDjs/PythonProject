@@ -1,11 +1,11 @@
 import smtplib, ssl
-import UsernamePassword
+import UsernamePassword AS UP
 
 port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
-sender_email = UsernamePassword.sender_email
-receiver_email = UsernamePassword.receiver_email
-password = UsernamePassword.password
+sender_email = UP.sender_email
+receiver_email = UP.receiver_email
+password = UP.password
 message = """\
 Subject: Motion Found
 
